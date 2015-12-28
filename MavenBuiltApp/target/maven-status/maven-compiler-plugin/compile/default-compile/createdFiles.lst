@@ -1,0 +1,5 @@
+com/custom/dao/Database.class
+com/custom/dao/Project.class
+com/custom/webService/FeedService.class
+com/custom/dto/FeedObjects.class
+com/custom/model/ProjectManager.class

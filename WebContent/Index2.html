@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+	
+</script>
+
+
+<script>
+
+$(document).ready(
+		function alertFunc() {			
+			$("#search").click(
+					
+					function () {
+						
+						$.ajax({
+							  method: "GET",
+							  url: "REST/WebService/GetFeeds",
+							  dataType: "json"
+							  
+							}).done(function(result) {
+							    $('#searchResultdiv').html('');
+								$.each(result, function(index, user) {
+									$('#searchResultdiv').append(
+											'<li>  -> <b>Title :</b> '
+													+ user.title
+													+ ', <b>Description :</b>'
+													+ user.description
+													+ ',<b> URL :</b>'
+													+ user.url + '</li>');
+
+								});
+							  })
+							    .fail(function() {
+							    alert( "error" );
+							  })
+					    	
+   			 });
+			
+ });
+</script>
+<body>
+	<div id="addResultDiv" style="color: red"></div>
+	<h2>Add User!</h2>
+
+	
+
+			<tr>
+				
+				<td><input type="button" value="Search Users" id="search" /></td>
+			</tr>
+		
+	<div id="searchResultdiv">Search Result will Appear here!</div>
+
+
+</body>
+</html>
